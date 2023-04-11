@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 
 import { IBook } from '../../../../shared';
 import * as actions from './action';
+import * as searchActions from '../search/action';
 
 export interface INationalBooksState {
   data: IBook[];
@@ -15,7 +16,7 @@ export const initialState: INationalBooksState = {
 
 const reducer = createReducer<INationalBooksState, Action>(
   initialState,
-  on(actions.loadBooks, (state) => {
+  on(actions.loadBooks, searchActions.searchClick, (state) => {
     return {
       ...state,
       isLoading: true,

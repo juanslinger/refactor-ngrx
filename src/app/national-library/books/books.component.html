@@ -1,0 +1,5 @@
+{{ data$ | async }}
+
+<ng-container *ngIf="isLoading$ | async">
+    <loader></loader>
+</ng-container>
