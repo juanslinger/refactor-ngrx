@@ -1,5 +1,15 @@
-{{ data$ | async }}
-
 <ng-container *ngIf="isLoading$ | async">
     <loader></loader>
 </ng-container>
+
+<ng-container *ngTemplateOutlet="container; context: { data : data$ | async }"></ng-container>
+
+<ng-template #container let-data="data">
+
+    <ng-container *ngFor="let current of data">
+
+        <book [data]="current"></book>
+        
+    </ng-container>
+    
+</ng-template>
