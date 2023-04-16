@@ -1,0 +1,4 @@
+{
+    "typescriptHero.imports.organizeOnSave": true,
+    "prettier.useTabs": true
+}
