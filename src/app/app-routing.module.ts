@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'catolica',
+    loadChildren: () => import('./catolica/catolica.module').then(m => m.CatolicaLibraryModule)
+  },
+  {
     path: 'national-library',
     loadChildren: () => import('./national-library/national-library.module').then(m => m.NationalLibraryModule)
   },
