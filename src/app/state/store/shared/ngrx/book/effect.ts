@@ -8,7 +8,7 @@ import { SearchActionBase } from '../search/action';
 import { BookActionBase } from './action';
 
 @Injectable()
-export class NationalBooksEffectsBase {
+export class BooksEffectsBase {
   constructor(
     public actions$: Actions,
     public _booksService: BooksService,
