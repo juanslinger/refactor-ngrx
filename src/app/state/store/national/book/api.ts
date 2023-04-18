@@ -1,25 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 
-import * as actions from './action';
-import * as selectors from './selector';
 import { NationalLibraryModule } from '../../../state.module';
-import { IBook } from '../../../../shared';
+import { BooksHandlerBase } from '../../shared/ngrx/book/api';
+import { actions } from './action';
+import { selectors } from './selector';
 
 @Injectable()
-export class NationalBooksHandler {
-    constructor(private _store: Store<NationalLibraryModule>) {}
-
-    getBooks(): Observable<IBook[]> {
-        return this._store.select(selectors.getData)
-    }
-
-    isLoading(): Observable<boolean> {
-        return this._store.select(selectors.isLoading);
-    }
-
-    loadBooks(): void {
-        this._store.dispatch(actions.loadBooks());
-    }
+export class NationalBooksHandler extends BooksHandlerBase {
+  constructor(public store: Store<NationalLibraryModule>) {
+    super(store, actions, selectors);
+  }
 }

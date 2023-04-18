@@ -1,15 +1,16 @@
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
-import { nationalBooksReducer, INationalBooksState } from './store/national/book/reducer';
-import { nationalSearchReducer, INationalSearchState } from './store/national/search/reducer';
+import { nationalBookReducer } from './store/national/book/reducer';
+import { nationalSearchReducer } from './store/national/search/reducer';
+import { IBooksState, ISearchState } from './store/shared/services';
 
 export interface NationalLibraryState {
-    books: INationalBooksState;
-    search: INationalSearchState;
+    books: IBooksState;
+    search: ISearchState;
 }
 
 export const reducers: ActionReducerMap<NationalLibraryState> = {
-    books: nationalBooksReducer,
+    books: nationalBookReducer,
     search: nationalSearchReducer
 };
 

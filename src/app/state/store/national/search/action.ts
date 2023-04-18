@@ -1,8 +1,3 @@
-import { createAction, props } from '@ngrx/store';
+import { SearchActionBase } from '../../shared/ngrx/search/action';
 
-import { ISearch } from '../../../../shared';
-
-const prefix = '[National][Search]';
-
-export const searchClick = createAction(`${prefix}[Search_Click]`, props<{ payload: ISearch }>());
-
+export const actions = new SearchActionBase('[National][Search]');

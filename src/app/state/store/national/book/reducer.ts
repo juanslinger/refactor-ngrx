@@ -1,43 +1,6 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { BookReducerBase } from '../../shared/ngrx/book/reducer';
+import { actions as searchActions } from '../search/action';
+import { actions } from './action';
 
-import { IBook } from '../../../../shared';
-import * as actions from './action';
-import * as searchActions from '../search/action';
-
-export interface INationalBooksState {
-  data: IBook[];
-  isLoading: boolean;
-}
-
-export const initialState: INationalBooksState = {
-  data: [],
-  isLoading: false,
-};
-
-const reducer = createReducer<INationalBooksState, Action>(
-  initialState,
-  on(actions.loadBooks, searchActions.searchClick, (state) => {
-    return {
-      ...state,
-      isLoading: true,
-    };
-  }),
-  on(actions.loadBooksError, (state) => {
-    return {
-      ...state,
-      isLoading: false,
-    };
-  }),
-  on(actions.loadBooksSuccess, (state, { data }) => {
-    return {
-      ...state,
-      data,
-      isLoading: false,
-    };
-  })
-);
-
-export const nationalBooksReducer = (
-  state: INationalBooksState | undefined,
-  action: Action
-): INationalBooksState => reducer(state, action);
+export const nationalBookReducer = new BookReducerBase(actions, searchActions)
+  .reducer;

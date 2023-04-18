@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+
 import { IBook } from '../../shared';
-import { NationalLibraryStateHandler } from '../../state';
+import { StateHandler } from '../../state/store/shared/services';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +17,7 @@ export class NationalLibraryBooksComponent implements OnInit, OnDestroy {
 
     private _dispose$ = new Subject<void>();
 
-    constructor(private _state: NationalLibraryStateHandler) {}
+    constructor(private _state: StateHandler) {}
 
     ngOnDestroy(): void {
         this._dispose$.complete();

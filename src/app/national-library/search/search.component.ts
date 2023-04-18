@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { NationalLibraryStateHandler } from '../../state';
+
 import { ISearch } from '../../shared';
+import { StateHandler } from '../../state/store/shared';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,7 +17,7 @@ export class NationalLibrarySearchComponent implements OnInit, OnDestroy {
 
     private _dispose$ = new Subject<void>();
 
-    constructor(private _state: NationalLibraryStateHandler) {}
+    constructor(private _state: StateHandler) {}
 
     ngOnDestroy(): void {
         this._dispose$.complete();
