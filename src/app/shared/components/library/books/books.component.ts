@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { IBook } from '../../shared';
-import { StateHandler } from '../../state/store/shared/services';
+import { IBook } from '../../../../shared';
+import { StateHandler } from '../../../../state/store/shared/services';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -11,7 +11,7 @@ import { StateHandler } from '../../state/store/shared/services';
     templateUrl: './books.component.html',
     styleUrls: ['./books.component.scss']
 })
-export class NationalLibraryBooksComponent implements OnInit, OnDestroy {
+export class LibraryBooksComponent implements OnInit, OnDestroy {
     public data$: Observable<IBook[]> | undefined;
     public isLoading$: Observable<boolean> | undefined;
 

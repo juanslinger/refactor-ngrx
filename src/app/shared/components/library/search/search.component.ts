@@ -3,8 +3,8 @@ import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { ISearch } from '../../shared';
-import { StateHandler } from '../../state/store/shared';
+import { ISearch } from '../../../../shared';
+import { StateHandler } from '../../../../state/store/shared';
 
 @Component({
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -12,7 +12,7 @@ import { StateHandler } from '../../state/store/shared';
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss']
 })
-export class NationalLibrarySearchComponent implements OnInit, OnDestroy {
+export class LibrarySearchComponent implements OnInit, OnDestroy {
     public titleControl = new FormControl('');
 
     private _dispose$ = new Subject<void>();

@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { nationalLibraryComponents } from '.';
-import { SharedComponentsModule } from '../shared';
+import { LibraryComponentsModule, SharedComponentsModule } from '../shared';
 import { NationalBooksHandler } from '../state/store/national/book/api';
 import { NationalSearchHandler } from '../state/store/national/search/api';
 import { StateHandler } from '../state/store/shared';
@@ -15,9 +14,9 @@ import { NationalLibraryRoutingModule } from './national-library-routing.module'
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     NationalLibraryRoutingModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    LibraryComponentsModule
   ],
   providers: [
     {
