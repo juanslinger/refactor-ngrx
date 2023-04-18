@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./national-library/national-library.module').then(m => m.NationalLibraryModule)
   },
   {
+    path: 'ort',
+    loadChildren: () => import('./ort/ort.module').then(m => m.ORTLibraryModule)
+  },
+  {
       path: '',
       pathMatch: 'full',
       redirectTo: '/national-library'
