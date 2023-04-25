@@ -21,7 +21,10 @@ export class BooksEffectsBase {
 
     return this.actions$.pipe(
       ofType(mainAction, this._searchActions.searchClick),
-      switchMap(() => this._booksService.getAll()),
+      switchMap(() => {
+        console.warn('Base Book Effect');
+        return this._booksService.getAll();
+      }),
       map((books) => this._actions.loadBooksSuccess({ data: books })),
       catchError(() => of(this._actions.loadBooksError()))
     );

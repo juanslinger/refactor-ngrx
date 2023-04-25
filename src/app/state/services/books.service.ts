@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core'
-
+import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+
 import { IBook } from '../../shared';
 
 @Injectable({
@@ -11,6 +11,10 @@ export class BooksService {
 
     public getAll(): Observable<IBook[]> {
         return of(this._getAll()).pipe(delay(2000));
+    }
+
+    public getNewBooks(): Observable<IBook[]> {
+        return of(this._getNewBooks()).pipe(delay(2000));
     }
 
     private _getAll(): IBook[] {
@@ -29,6 +33,26 @@ export class BooksService {
                 description: 'Descripcion 3',
                 pages: 300,
                 title: 'Titulo 3'
+            }
+        ];
+    }
+
+    private _getNewBooks(): IBook[] {
+        return [
+            {
+                description: 'Descripcion 4',
+                pages: 400,
+                title: 'Titulo 4'
+            },
+            {
+                description: 'Descripcion 5',
+                pages: 500,
+                title: 'Titulo 5'
+            },
+            {
+                description: 'Descripcion 6',
+                pages: 600,
+                title: 'Titulo 6'
             }
         ];
     }

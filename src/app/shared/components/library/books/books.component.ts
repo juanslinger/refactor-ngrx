@@ -27,4 +27,8 @@ export class LibraryBooksComponent implements OnInit, OnDestroy {
         this.data$ = this._state.books.getBooks().pipe(takeUntil(this._dispose$));
         this.isLoading$ = this._state.books.isLoading().pipe(takeUntil(this._dispose$));
     }
+
+    onClear(): void {
+        this._state.books.clearBooks();
+    }
 }

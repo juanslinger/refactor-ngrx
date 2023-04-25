@@ -9,12 +9,14 @@ import { BookActionBase } from './action';
 import { BookSelectorBase } from './selector';
 
 @Injectable()
-export class BooksHandlerBase implements IBookHandler {
+export abstract class BooksHandlerBase implements IBookHandler {
   constructor(
     private _store: Store<NationalLibraryModule>,
     private _actions: BookActionBase,
     private _selectors: BookSelectorBase
   ) {}
+
+  abstract clearBooks(): void;
 
   getBooks(): Observable<IBook[]> {
     return this._store.select(this._selectors.getData);

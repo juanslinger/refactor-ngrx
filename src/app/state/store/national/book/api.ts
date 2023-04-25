@@ -11,4 +11,8 @@ export class NationalBooksHandler extends BooksHandlerBase {
   constructor(public store: Store<NationalLibraryModule>) {
     super(store, actions, selectors);
   }
+
+  public override clearBooks(): void {
+    this.store.dispatch(actions.clearBooks());
+  }
 }

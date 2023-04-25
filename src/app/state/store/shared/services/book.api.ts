@@ -7,6 +7,8 @@ export interface IBooksState {
 }
 
 export interface IBookHandler {
+  clearBooks(): void;
+  
   getBooks(): Observable<IBook[]>;
 
   isLoading(): Observable<boolean>;

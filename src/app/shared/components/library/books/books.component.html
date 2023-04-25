@@ -1,15 +1,28 @@
+
 <ng-container *ngIf="isLoading$ | async">
-    <loader></loader>
+    <div class="container">
+        <loader></loader>
+    </div>
 </ng-container>
+
 
 <ng-container *ngTemplateOutlet="container; context: { data : data$ | async }"></ng-container>
 
 <ng-template #container let-data="data">
 
-    <ng-container *ngFor="let current of data">
-
-        <book [data]="current"></book>
-        
-    </ng-container>
+    <ng-container *ngIf="data?.length">
+        <button type="button" (click)="onClear()">Clear Books</button>
     
+        <div class="container">
+    
+            <ng-container *ngFor="let current of data">
+        
+                <book [data]="current"></book>
+                
+            </ng-container>
+                
+        </div>
+
+    </ng-container>
+
 </ng-template>

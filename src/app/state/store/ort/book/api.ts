@@ -11,4 +11,6 @@ export class ORTBooksHandler extends BooksHandlerBase {
   constructor(public store: Store<NationalLibraryModule>) {
     super(store, actions, selectors);
   }
+
+  public override clearBooks(): void {}
 }
